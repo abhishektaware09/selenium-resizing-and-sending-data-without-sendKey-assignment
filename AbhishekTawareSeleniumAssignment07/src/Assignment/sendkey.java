@@ -1,0 +1,40 @@
+package Assignment;
+
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class sendkey {
+	
+	WebDriver dirver;
+	String url="https://www.gmail.com";
+
+	@Before
+	public void setUp() throws Exception {
+		System.setProperty("webdriver.chrome.driver", "F:s\\chromedriver.exe");
+		dirver=new ChromeDriver();
+		dirver.get(url);
+		dirver.manage().window().maximize();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		dirver.quit();
+	}
+
+	@Test
+	public void test() throws InterruptedException {
+		JavascriptExecutor JE = (JavascriptExecutor)dirver;
+		JE.executeScript("document.getElementById('identifierId').value='abhitaware91@gmail.com'");
+		Thread.sleep(5000);
+		
+		
+	}
+
+}
